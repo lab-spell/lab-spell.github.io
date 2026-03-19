@@ -40,6 +40,39 @@
             for frozen vision-language models.
           </p>
 
+          <div class="hero-identity">
+            <div class="hero-authors">
+              <p class="hero-meta-label">Authors</p>
+              <p class="hero-meta-value">
+                <a class="text-link" href="https://raykuo18.github.io/" target="_blank" rel="noreferrer">
+                  Shang-Jui Ray Kuo
+                </a>
+                <span class="hero-meta-separator">·</span>
+                <a class="text-link" href="https://paolacascante.com/" target="_blank" rel="noreferrer">
+                  Paola Cascante-Bonilla
+                </a>
+              </p>
+            </div>
+
+            <a
+              class="hero-lab"
+              href="https://paolacascante.com/lab/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                class="hero-lab-icon"
+                src="assets/spell_icon.png"
+                alt="SPELL Lab icon"
+                loading="lazy"
+              >
+              <div>
+                <p class="hero-meta-label">Lab</p>
+                <p class="hero-meta-value">SPELL Lab</p>
+              </div>
+            </a>
+          </div>
+
           <div class="hero-actions">
             <a class="button button-primary" href="full_paper.pdf" target="_blank" rel="noreferrer">
               Read Paper
@@ -65,12 +98,30 @@
 
           <div class="panel-card">
             <p class="panel-label">Families Compared</p>
-            <div class="chip-row">
-              <span class="chip chip-coral">VMamba / SSM</span>
-              <span class="chip chip-blue">ViT</span>
-              <span class="chip chip-gold">MaxViT</span>
-              <span class="chip chip-lilac">MambaVision</span>
-              <span class="chip chip-green">ViTDet / DeiT</span>
+            <div class="family-group">
+              <p class="family-label">Main paper</p>
+              <div class="chip-row">
+                <span class="chip chip-coral">VMamba / SSM</span>
+                <span class="chip chip-blue">ViT</span>
+                <span class="chip chip-orange">MaxViT</span>
+                <span class="chip chip-lilac">MambaVision</span>
+                <span class="chip chip-green">ViTDet</span>
+                <span class="chip chip-yellow">DeiT</span>
+              </div>
+            </div>
+
+            <div class="family-group">
+              <p class="family-label">Appendix</p>
+              <div class="chip-row">
+                <span class="chip chip-neutral">Perceiver</span>
+                <span class="chip chip-neutral">BEiT</span>
+                <span class="chip chip-neutral">AugReg</span>
+                <span class="chip chip-neutral">Vim</span>
+                <span class="chip chip-neutral">CLIP</span>
+                <span class="chip chip-neutral">DINOv2</span>
+                <span class="chip chip-neutral">SigLIP</span>
+                <span class="chip chip-neutral">Fused encoders</span>
+              </div>
             </div>
           </div>
         </aside>
@@ -222,9 +273,15 @@
               loading="lazy"
             >
             <figcaption>
-              Resolution increases expose different latency and memory tradeoffs across
-              backbones. The figure reports host-side, GPU-side, and end-to-end VLM
-              timing together with peak allocated GPU memory.
+              Figure 4 profiles batch-size-1 inference on a single NVIDIA H200 GPU for
+              representative VMamba, ViT, and ViTDet VLMs. Host-side latency measures
+              wall-clock time seen from the CPU, including preparation and launch
+              overhead, while GPU latency isolates the time spent computing on the GPU;
+              end-to-end latency captures the full multimodal forward pass. These three
+              backbones were chosen to expose practical tradeoffs: ViT is a scale-matched
+              baseline with similar model size to VMamba but lower downstream VLM
+              performance, whereas ViTDet is a competitive but much larger and heavier
+              alternative whose memory cost grows much faster.
             </figcaption>
           </figure>
         </div>
@@ -258,8 +315,20 @@
     </main>
 
     <footer class="footer">
-      <p>Project page for the paper and supporting figures.</p>
-      <a class="text-link" href="#top">Back to top</a>
+      <div class="footer-card footer-disclaimer">
+        <p class="footer-label">Disclaimer</p>
+        <p class="footer-copy">
+          This webpage was coded with help from
+          <a class="text-link" href="https://openai.com/codex/" target="_blank" rel="noreferrer">
+            OpenAI Codex
+          </a>.
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Project page for the paper and supporting figures.</p>
+        <a class="text-link" href="#top">Back to top</a>
+      </div>
     </footer>
   </div>
 </body>
