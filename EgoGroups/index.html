@@ -1,1 +1,422 @@
-EgoGroups
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="descripction"
+        content="VLMPrivacy: Beyond Blanket Masking: Examining Granularity for Privacy Protection in Images Captured by Blind and Low Vision Users">
+  <meta name="keywords" content="visual language models, privacy, safety, accessibility">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beyond Blanket Masking: Examining Granularity for Privacy Protection in Images Captured by Blind and Low Vision Users</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a> -->
+
+<!--       <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div> -->
+<!--     </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Beyond Blanket Masking: Examining Granularity for Privacy Protection in Images Captured by Blind and Low Vision Users</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://artcs1.github.io/">Jeffri Murrugarra-Llerena</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/haoran-niu-b4b3b6114/">Haoran Niu</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.ece.utexas.edu/people/faculty/suzanne-barber">K. Suzanne Barber</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://users.umiacs.umd.edu/~hal3//">Hal Daumé III</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://tristaycao.github.io/">Yang Trista Cao</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://paolacascante.com/">Paola Cascante-Bonilla</a><sup>1,3</sup>,
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+                <span class="author-block"><sup>1</sup>Stony Brook University,</span>
+                <span class="author-block"><sup>2</sup>University of Texas at Austin</span>
+                <span class="author-block"><sup>3</sup>University of Maryland, College Park</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                Conference on Large Language Models (COLM) 2025</span>
+            </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2508.09245v1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+
+              <span class="link-block">
+                <a href="https://github.com/Artcs1/VLM-Privacy"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code: Agent</span>
+                  </a>
+              </span>
+              
+              <span class="link-block">
+                <a href="https://github.com/niu-haoran/vlm-privacy"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code: Risk Score</span>
+                  </a>
+              </span>
+            
+
+
+              
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                 <a href="https://github.com/robingg1/PoseTraj"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Comparison with other models</h2>
+      
+      <!-- 第二排 -->
+      <div class="columns is-multiline is-centered">
+        <div class="column">
+          <img src="./static/images/4.png" alt="Image">
+        </div>
+        <div class="column">
+          <img src="./static/images/4_gemini_output.png" alt="Gemini">
+        </div>
+        <div class="column">
+          <img src="./static/images/4_gpt4o_output.png" alt="GPT4">
+        </div>
+        <div class="column">
+          <img src="./static/images/4_mistralocr_output.png" alt="MistralOCR">
+        </div>
+        <div class="column">
+          <img src="./static/images/4_finegrained_ours.png" alt="Finegrained">
+        </div>
+        <div class="column">
+          <img src="./static/images/4_figpriv_ours.png" alt="FigPriv">
+        </div>
+      </div>
+
+      
+      <!-- 第二排 -->
+      <div class="columns is-multiline is-centered">
+        <div class="column">
+          <img src="./static/images/2.png" alt="Image">
+        </div>
+        <div class="column">
+          <img src="./static/images/2_gemini_output.png" alt="Gemini">
+        </div>
+        <div class="column">
+          <img src="./static/images/2_gpt4o_output.png" alt="GPT4">
+        </div>
+        <div class="column">
+          <img src="./static/images/2_mistralocr_output.png" alt="MistralOCR">
+        </div>
+        <div class="column">
+          <img src="./static/images/2_finegrained_ours.png" alt="Finegrained">
+        </div>
+        <div class="column">
+          <img src="./static/images/2_figpriv_ours.png" alt="FigPriv">
+        </div>
+      </div>
+
+
+      
+      <!-- 第二排 -->
+      <div class="columns is-multiline is-centered">
+        <div class="column">
+          <img src="./static/images/3.png" alt="Image">
+        </div>
+        <div class="column">
+          <img src="./static/images/3_gemini_output.png" alt="Gemini">
+        </div>
+        <div class="column">
+          <img src="./static/images/3_gpt4o_output.png" alt="GPT4">
+        </div>
+        <div class="column">
+          <img src="./static/images/3_mistralocr_output.png" alt="MistralOCR">
+        </div>
+        <div class="column">
+          <img src="./static/images/3_finegrained_ours.png" alt="Finegrained">
+        </div>
+        <div class="column">
+          <img src="./static/images/3_figpriv_ours.png" alt="FigPriv">
+        </div>
+      </div>
+
+      <!-- 第二排 -->
+      <div class="columns is-multiline is-centered">
+        <div class="column">
+          <img src="./static/images/1.png" alt="Image">
+          <h4 class="subtitle has-text-centered">Image</h4>
+        </div>
+        <div class="column">
+          <img src="./static/images/1_gemini_output.png" alt="Gemini">
+          <h4 class="subtitle has-text-centered">Gemini 2.5</h4>
+        </div>
+        <div class="column">
+          <img src="./static/images/1_gpt4o_output.png" alt="GPT4">
+          <h4 class="subtitle has-text-centered">GPT-4o</h4>
+        </div>
+        <div class="column">
+          <img src="./static/images/1_mistralocr_output.png" alt="MistralOCR">
+          <h4 class="subtitle has-text-centered">MistralOCR</h4>
+        </div>
+        <div class="column">
+          <img src="./static/images/1_finegrained_ours.png" alt="Finegrained">
+          <h4 class="subtitle has-text-centered">Full Fine-Grained (Ours)</h4>
+        </div>
+        <div class="column">
+          <img src="./static/images/1_figpriv_ours.png" alt="FigPriv">
+          <h4 class="subtitle has-text-centered">⭐ Fig-Priv (Ours)</h4>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          As visual assistant systems powered by visual language models (VLMs) be-
+come more prevalent, concerns over user privacy have grown, particularly
+for blind and low vision users who may unknowingly capture personal
+private information in their images. Existing privacy protection methods
+rely on coarse-grained segmentation, which uniformly masks entire private
+objects, often at the cost of usability. In this work, we propose FiG-Priv, a
+fine-grained privacy protection framework that selectively masks only high-risk
+private information while preserving low-risk information. Our approach
+integrates fine-grained segmentation with a data-driven risk scoring mech-
+anism. By leveraging a more nuanced understanding of privacy risk, our
+method enables more effective protection without unnecessarily restricting
+users’ access to critical information. We evaluate our framework using the
+BIV-Priv-Seg dataset and show that FiG-Priv preserves +26% of image
+content, enhancing the ability of VLMs to provide useful responses by 11%
+and identify the image content by 45%, while ensuring privacy protection.
+            
+          </p>
+        </div>
+            <div class="publication-image">
+            <img src="./static/example.png" alt="Description of the image">
+            </div>
+      </div>
+    </div>
+
+    
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3">Approach</h2>
+            <div class="content has-text-justified">
+            <p>
+            We propose the FiG-Priv framework, which combines fine-grained segmentation with a data-driven risk scoring mechanism.
+            </p>
+            </div>
+            <div class="publication-image">
+            <img src="./static/approach.jpg" alt="Description of the image">
+            </div>
+        </div>
+    </div>
+
+    
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3">Results</h2>
+            <div class="content has-text-justified">
+            <p>
+            To evaluate VLM performance across the three masking strategies, we first test object recognition in two settings: when the private object is the focus of the question, and when a control object is the focus with the private object in the background.
+            </p>
+            </div>
+            <div class="publication-image">
+            <img src="./static/tables1.png" alt="Description of the image">
+            </div>
+        </div>
+    </div>
+    
+    <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <div class="content has-text-justified">
+            <p>
+            We also evaluate VLM performance on the VQA task using realistic, human-asked questions. Note that, high-risk masking achieves an answerability rate closest to that of the full image.
+            </p>
+            </div>
+            <div class="publication-image">
+            <img src="./static/answerable_plots.jpg" alt="Description of the image">
+            </div>
+        </div>
+    </div>
+
+    
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+  
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{Murrugarra_2025_vlmprivacy,
+  author    = {Murrugarra-Llerena, Jeffri and Haoran, Niu and K.Suzanne, Barber and Daume III, Hal and Trista Cao, Yang and Cascante-Bonilla, Paola},
+  title     = {Beyond Blanket Masking: Examining Granularity for Privac Protection in Images Captured by Blind and Low Vision Users},
+  journal   = {COLM},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            We borrow the source code of this website from Nerfies <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a>. Last update: March 2025.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
