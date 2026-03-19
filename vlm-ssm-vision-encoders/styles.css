@@ -315,6 +315,7 @@ h3 {
 .button-primary {
   color: #fff9f6;
   background: linear-gradient(135deg, #d75a47, #ef7f69);
+  border-color: rgba(215, 90, 71, 0.24);
   box-shadow: 0 16px 28px rgba(228, 103, 83, 0.22);
 }
 
@@ -322,6 +323,28 @@ h3 {
   color: var(--text);
   background: rgba(255, 255, 255, 0.66);
   border-color: rgba(23, 33, 43, 0.1);
+}
+
+.button-code {
+  color: #f5fbff;
+  background-color: #4d8ea1;
+  background: linear-gradient(135deg, #4b8798, #6aa7b6);
+  border-color: rgba(75, 135, 152, 0.48);
+  box-shadow:
+    0 16px 28px rgba(47, 96, 111, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.button-code:visited {
+  color: #f5fbff;
+}
+
+.button-code:hover,
+.button-code:focus-visible {
+  color: #ffffff;
+  background-color: #427e90;
+  background: linear-gradient(135deg, #3f7687, #5a98a7);
+  border-color: rgba(63, 118, 135, 0.58);
 }
 
 .text-link {
