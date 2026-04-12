@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="SceneCritic: A Symbolic Evaluator for 3D Indoor Scene Synthesis">
+  <meta name="keywords" content="Symbolic, Evaluator">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SceneCritic: A Symbolic Evaluator for 3D Indoor Scene Synthesis</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="shortcut icon" href="./favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <meta property="og:site_name" content="SceneCritic: A Symbolic Evaluator for 3D Indoor Scene Synthesis" />
+  <meta property="og:type" content="video.other" />
+  <meta property="og:title" content="SceneCritic: A Symbolic Evaluator for 3D Indoor Scene Synthesis" />
+  <meta property="og:description" content="Sengupta, et al. SceneCritic: A Symbolic Evaluator for 3D Indoor Scene Synthesis." />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SceneCritic: A Symbolic Evaluator for 3D Indoor Scene Synthesis" />
+  <meta name="twitter:description" content="Sengupta, et al. SceneCritic: A Symbolic Evaluator for 3D Indoor Scene Synthesis." />
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">SceneCritic: A Symbolic Evaluator for 3D Indoor Scene Synthesis</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://diasengupta.github.io/">Kathakoli Sengupta</a>&emsp;
+                <a href="https://paolacascante.com/">Paola Cascante-Bonilla</a>&emsp;
+                <br />Stony Brook University
+                <span class="brmod"></span>SPELLAB</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/unilcd/unilcd.github.io/blob/main/resources/UniLCD_paper.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-alt"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- <span class="link-block">
+                  <a href="#method_video" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/DIASENGUPTA/SceneCritic" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Data Link. -->
+                <span class="link-block">
+                  <a href="https://drive.google.com/file/d/1Rj7WVNzUnkVp-GFBg4KILXGlTlJJxpkQ/view?usp=sharing" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>SceneOnto</span>
+                  </a>
+                </span>
+                <!-- Data Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://github.com/unilcd/unilcd.github.io/blob/main/resources/UniLCD-supp.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-alt"></i>
+                    </span>
+                    <span>Supplementary</span>
+                  </a>
+                </span> -->
+                
+                <!-- Slides Link. -->
+                <!-- <span class="link-block">
+                <a href="TODO"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-powerpoint"></i>
+                  </span>
+                  <span>Slides</span>
+                  </a>
+              </span> -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="hero teaser">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <img src="./resources/example1.gif" />
+        <h2 class="subtitle has-text-centered">
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+ -->
+
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <!-- <div class="column" style="text-align: center;">
+              <img src="./resources/Cover_image.png" width="80%" />
+            </div> -->
+            <p>
+            Large Language Models (LLMs) and Vision-Language Models (VLMs) increasingly 
+            generate indoor scenes through intermediate structures such as layouts and 
+            scene graphs, yet evaluation still relies on LLM or VLM judges that score 
+            rendered views, making judgments sensitive to viewpoint, prompt phrasing, 
+            and hallucination. When the evaluator is unstable, it becomes difficult to 
+            determine whether a model has produced a spatially plausible scene or whether
+            the output score reflects the choice of viewpoint, rendering, or prompt. We 
+            introduce <em>SceneCritic</em>, a symbolic evaluator for floor-plan-level layouts. 
+             <em>SceneCritic</em>'s constraints are grounded in <em>SceneOnto</em>, a structured spatial 
+            ontology we construct by aggregating indoor scene priors from 3D-FRONT, ScanNet, 
+            and Visual Genome.  <em>SceneCritic</em> traverses this ontology to jointly verify 
+            semantic, orientation, and geometric coherence across object relationships, 
+            providing object-level and relationship-level assessments that identify specific 
+            violations and successful placements. Furthermore, we pair <em>SceneCritic</em> with an 
+            iterative refinement test bed that probes how models build and revise spatial 
+            structure under different critic modalities: a rule-based critic using collision 
+            constraints as feedback, an LLM critic operating on the layout as text, and a
+            VLM critic operating on rendered observations. Through extensive experiments, 
+            we show that (a) <em>SceneCritic</em> aligns substantially better with human 
+            judgments than VLM-based evaluators, (b) text-only LLMs can outperform 
+            VLMs on semantic layout quality, and (c) image-based VLM refinement is 
+            the most effective critic modality for semantic and orientation correction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+      <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Motivation</h2>
+          <div class="content has-text-justified">
+            <div class="column" style="text-align: center;">
+              <img src="./resources/SceneCritic_fig1.png" width="100%" />
+            </div>
+            <p>
+              Our motivation is to solve the research question: Are VLM evaluators robust to 
+              <strong>hallucinations</strong> and <strong>prompt-phrasing</strong>? Can VLM-evaluators handle <strong>view-bias</strong>? Is Human 
+              Evaluation the solution? The follow-up question is: Are Human evaluations <strong>scalable</strong>? We are excited to present 
+              <em>SceneCritic</em>, a symbolic evaluator for floor-plan-level layouts grounded in <em>SceneOnto</em> data.
+            </p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--       Abstract.
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Data Description</h2>
+          <div class="content has-text-justified">
+              The dataset has been collected while navigating through eight 
+            predefined routes in the Carla simulation. It includes images 
+            captured from the perspective of our ego walker, as well as 
+            detailed information about their actions and locations throughout 
+            the routes. Below is a brief overview of its contents and structure:
+              <ul>
+                <li>Images: The images folder contains a series of visuals captured 
+                  from the perspective of the ego walker. Each image provides a 
+                  first-person view of the walker’s journey, offering a detailed 
+                  depiction of the surrounding environment and context.</li>
+                <li>Info: This info folder consists of numpy array with 7 columns. 
+              The first 2 corresponds to the actions taken by the expert. 
+              The 3rd column indicates presence(1)/absence(0) of pedestrian 
+              in its visible range. The following  2 represents the current 
+              location of the expert and the last two are the closest next 
+              path point to the expert.</li>
+              </ul>
+            </p>
+          Directory Organization of UniLCD:
+            <ul>
+              <p>
+              <li>UniLCD
+                <ul>
+                  <li>Images
+                    <ul>
+                      <li>1.jpg</li>
+                      <li>2.jpg</li>
+                      <li>...</li>
+                      <li>10.jpg</li>
+                      <li>...</li>
+                    </ul>
+                  </li>
+                  <li>Info
+                    <ul>
+                      <li>1.npy</li>
+                      <li>2.npy</li>
+                      <li>...</li>
+                      <li>10.npy</li>
+                      <li>...</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <section class="section">
+    <div class="container">
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">SceneOnto Dataset</h2>
+          <div class="content has-text-justified">
+             The dataset consists of the following information
+              <ol>
+                <li><b> Dimensions</b>: Object geometry constraints using percentile statistics (p5, p25, median, p75, p95, mean, std) for width, height, and depth, along with corresponding sample counts.</li>
+              
+                <li><b> Room Associations</b>: Captures how frequently each object category appears across different room types, storing both absolute counts and normalized fractions relative to total observations.</li>
+              
+                <li><b> Support Surfaces</b>: Records the surfaces on which objects are typically placed (e.g., floor, shelf), mapping each surface type to its count and fraction.</li>
+              
+                <li><b> Co-occurrence</b>: Models object co-occurrence patterns by mapping each category pair to statistics including co-occurrence count, conditional probability (p_b_given_a), and normalized pointwise mutual information (npmi). Entries are sorted by frequency and capped at 50.</li>
+              
+                <li><b> Co-occurrence by Room</b>: Extends co-occurrence statistics by conditioning on room type, providing up to 50 entries per room for finer contextual relationships.</li>
+              
+                <li><b> Orientation Relationships</b>: Consists of three sub-components:
+                  <ul>
+                    <li><b> Back to Wall</b>: Fraction of instances whose back direction aligns with the nearest wall (within 45°), along with mean angular deviation and sample count.</li>
+                    <li><b> Faces Center</b>: Fraction of instances oriented toward the room centroid (within 60°).</li>
+                    <li><b> Faces Pair</b>: Pairwise facing relationships, mapping categories to the fraction of instances facing them (within 60°), along with mean angle, mean distance, and sample count.</li>
+                  </ul>
+                </li>
+              </ol>
+          </div>
+          <div class="content has-text-justified">
+          <strong>Relational sub-graph from SceneOnto for three common room types</strong>
+          </div>
+          <div class="column">
+            <img src="./resources/SceneOnto_SceneGraph.png" width="100%" />
+          </div>
+          <div class="content has-text-justified">
+          <strong>Summary statistics from SceneOnto</strong>
+          </div>
+          <div class="column">
+            <img src="./resources/SceneOnto_stats.png" width="100%" />
+          </div>
+          <!-- <h2 class="title is-4" align="left">UniLCD Algorithm Diagram</h2>
+          <div class="content has-text-justified">
+            <p>
+              The architecture diagram of our algorithm UniLCD is shown that features a situational routing 
+              module that utilizes current embeddings and a history of previous actions. Local actions are 
+              predicted by a pre-trained lightweight model for efficient deployment on mobile systems, while 
+              a sample-efficient routing module, trained via reinforcement learning, decides whether to execute 
+              local actions or transmit the scene embeddings to a more accurate but computationally intensive 
+              cloud server model.
+            </p>
+            <div class="column">
+              <img src="./resources/Method.png" />
+            </div> -->
+
+          <!-- </div> -->
+        </div>
+      </div>
+        </div>
+      </div>
+
+    <section class="section">
+    <div class="container">
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">SceneCritic</h2>
+          <div class="content has-text-justified">
+            SceneCritic performs Spatial Semantic Verification, Orientation Verification and Overlap detection.
+          </div>
+          <div class="column">
+            <img src="./resources/SceneCritic_method.png" width="100%" />
+          </div>
+          <h2 class="title is-4" align="left">SceneCritic Ablation Study</h2>
+          <div class="content has-text-justified">
+            <p>
+              We ground the hyperparameter tuning in Procthor-10K dataset, a procedurally generated 3D scene dataset.
+              We verify the hyperparameters by comparing human analysis with evaluation by SceneCritic with Procthor
+              grounded hyperparameters. The figure above shows a typical room analysis.
+            </p>
+            <div class="column">
+              <img src="./resources/SceneCritic_ablation.png" />
+            </div>
+
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    
+    <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Results</h2>
+          <div class="content has-text-justified">
+          <strong>Per-view Variance relative to Top-view Baseline</strong>
+          </div>
+          <div class="column">
+            <img src="./resources/SceneCritic_result1.png" width="100%" />
+          </div>
+          <div class="content has-text-justified">
+          We examine the reliability of VLM-based evaluation by measuring score variance across viewpoints and repeated evaluations 
+          using Gemini-2.5-Pro as the evaluator. The VLM evaluator cannot produce consistent scores for the same input, downstream 
+          comparisons between generation methods become unreliable. We also find that method rankings reverse depending on which viewpoint 
+          is chosen for evaluation.
+          </div>
+          <div class="content has-text-justified">
+          <strong>Comparison of Baselines across VLM evaluator and SceneCritic</strong>
+          </div>
+          <div class="column">
+            <img src="./resources/SceneCritic_result2.png" width="100%" />
+          </div>
+          <div class="content has-text-justified">
+           VLM and SceneCritic ranks models differently.
+          </div>
+          <div class="content has-text-justified">
+          <strong>What do human evaluators think?</strong>
+          <p>Human Evaluators Agreement</p>
+                <ol>
+                  <li><b> Easy Room Configurations</b>: 
+                    <ul>
+                      <li><b>SceneCritic:</b> 94.44%</li>
+                      <li><b>VLM Evaluation:</b> 58.82%</li>
+                    </ul>
+                  </li>
+                  <li><b>Complex Room Configurations</b>: 
+                    <ul>
+                      <li><b>SceneCritic:</b> 83.33%</li>
+                      <li><b>VLM Evaluation:</b> 40%</li>
+                    </ul>
+                  </li>
+                </ol>
+          </div>
+          <div class="content has-text-justified">
+           <strong>Models categorized by post-training strategy and model parameters</strong>
+          </div>
+          <div class="column">
+            <img src="./resources/SceneCritic_result3.png" width="100%" />
+          </div>
+          <div class="content has-text-justified">
+           <strong>Comparison across refinement variants using MLLM backbones with <em>SceneCritic</em></strong>
+          </div>
+          <div class="column">
+            <img src="./resources/SceneCritic_result4.png" width="60%" />
+          </div>
+          <div class="content has-text-justified">
+           We generate novel 3D scenes with our testbed setup of planning, placement and refinement with backbone models 
+          listed in Table 3. The interesting observations are
+          <ol>
+                <li>Text-only LLMs(Deepseek-3.2v) can outperform VLMs (Gemini-2.5-Flash)  on spatial reasoning.</li>
+              
+                <li>Orientation is the most challenging metrics.</li>
+              
+                <li>Image-based (visual) refinement  is the most effective critic modality for layout generation improvement.</li>
+              </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Conclusion</h2>
+          <div class="content has-text-justified">
+          We introduced <em>SceneCritic</em>, a symbolic evaluator for indoor floor-plan layouts, and <em>SceneOnto</em>, a structured spatial ontology 
+          aggregated from 3D-FRONT, ScanNet, and Visual Genome. Together, they provide stable, interpretable, object-level evaluation of
+          semantic coherence, orientation correctness, and overlap, without relying on rendered views or model-based judges. Our experiments 
+          show that <em>SceneCritic</em> aligns substantially better with human judgments than VLM-based evaluators, particularly on complex scenes
+          where VLM agreement with humans drops to 47.06\%. Through our iterative refinement testbed, we find that text-only LLMs can outperform
+          VLMs on semantic layout quality, that math-oriented training objectives improve orientation reasoning even at small model scales,
+          and that image-based VLM refinement is the most effective critic modality for semantic and orientation correction. <em>SceneOnto</em> is 
+          inherently extensible. By providing a simple mapping from a new dataset into our ontology format, novel room types and object 
+          categories can be readily integrated. Consequently, <em>SceneCritic</em> immediately supports these additions. 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+    
+    <!-- Paper video. -->
+    <!-- <br />
+    <br />
+    <div id="method_video" class="columns is-centered has-text-centered">
+      <div class="column is-half">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video controls>
+            <source src="./resources/ECCV_final.mp4" type="video/mp4">
+          </video>
+<!--           <iframe src="https://www.youtube.com/embed/5tmkDHfgqvU"
+                <!-- frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+
+  </section>
+
+
+  
+
+ <!--  <section class="section">
+    <div class="container">
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Method</h2>
+          <div class="content has-text-justified">
+            We develop a novel deep distillation scheme that can address these
+            limitations and close the gap between the sensorimotor agent and its
+            privileged teacher. We achieve this by
+
+            <ol>
+              <li><b>Effective Teacher</b>: We propose to incorporate explicit safety-aware cues
+                into the BEV space that facilitate a surprisingly effective teacher agent
+                design. We demonstrate our learned agent to match expert- level decisionmaking.</li>
+
+              <li><b>Teachable Student via Alignment</b>: An IPM-based transformer alignment
+                module can facilitate direct distillation of most of the teacher’s features and
+                better guide the student learning process.</li>
+
+              <li><b>Student-paced Coaching</b>: A coaching mechanism for managing difficult
+                samples can scaffold knowledge and lead to improved model optimization
+                by better considering the ability of the student.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4" align="left">Effective Teacher</h2>
+          <div class="content has-text-justified">
+            Given the low performance of prior privileged agents, the teacher could benefit from more <b>explicit
+            safety-driven cues in the BEV</b>. We propose to add two types of channels of predicted agents’ future and
+            entity attention. We first utilize a kinematics bicycle model to predict future trajectories of dynamic
+            objects, which enables us to iteratively predict and represent short-term future position, orientation, and
+            speed of agent. Then, we encode an explicit attention channel for highlighting potential future infractions.
+            Our boosted teacher agent even improves over the rule-based expert.
+
+          </div>
+          <div class="column">
+            <img src="./resources/bev_figure.png" width="80%" />
+          </div>
+        </div>
+      </div>
+
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4" align="left">Teachable student via Alignment</h2>
+          <div class="content has-text-justified">
+            Due to the difference between inputs and modeling capacities, it can be difficult to align the image-based
+            student features and output with the BEV-based privileged teacher. Therefore, we proposed an <b>IPM-based
+              transformer alignment module</b> that can facilitate direct distillation of most of the teacher’s features
+            and better
+            guide the student learning process.
+          </div>
+          <div class="column">
+            <img src="./resources/figure1_crop.png" width="80%" />
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4" align="left">Student-paced Coaching</h2>
+          <div class="content has-text-justified">
+            To better consider the learning ability of the student, we gradually coach the student with a student-paced
+            coaching mechanism. Specifically, we interpolate between teacher features and student features on samples
+            that the student performed poorly (i.e. higher loss). This effectively adjusts the learning rate in a
+            sample-selective manner, which aims to stabilize training by reducing the difficulty when the student is
+            unable to perform the optimal action.
+          </div>
+
+          <div class="column">
+            <img src="./resources/student_pace.png" width="50%" />
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4" align="left">Model Architecture of CaT</h2>
+          <div class="content has-text-justified">
+            <p>
+              Our proposed CaT framework
+              enables highly effective knowledge transfer between a privileged
+              teacher and a sensorimotor (i.e., image-based) student.
+
+              Specifically, we first sample queries using a spatial parameterization of the BEV space and process them
+              with a self-attention module. Then, a deformable cross-attention module is applied to populate the
+              student’s BEV features.
+
+              The residual blocks following the alignment module can consequently facilitate knowledge transfer via
+              direct distillation of most of the teacher’s features.
+
+
+              Our optimization objective for guiding the distillation process is a weighted sum over both distillation
+              and auxiliary tasks, including output distillation loss, feature distillation loss, segmentation loss and
+              command prediction loss.
+            </p>
+            <div class="column">
+              <img src="./resources/method.png" />
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Qualitative Examples</h2>
+            <video controls>
+            <source src="./resources/CaT_Video.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section id=" BibTeX"">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">BibTeX</h2>
+          <div class="content has-text-justified">
+            <pre><code>@inproceedings{zhang2023coaching,
+        title={Coaching a Teachable Student},
+        author={Zhang, Jimuyang and Huang, Zanming and Ohn-Bar, Eshed},
+        booktitle={CVPR},
+        year={2023}
+}</code></pre>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="section id=" BibTeX"">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Acknowledgments</h2>
+          <div class="content has-text-centered">
+            We thank the SUNY AI Platform
+            for supporting this research.
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>Page template borrowed from <a href="https://nerfies.github.io/"><span class="dnerf">D-NeRF</span></a>.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
